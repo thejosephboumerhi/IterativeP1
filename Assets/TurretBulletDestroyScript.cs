@@ -23,6 +23,7 @@ public class TurretBulletDestroyScript : MonoBehaviour
     void damagePlayer()
     {
         healthVariables.currentHealth = healthVariables.currentHealth - 15;
+        Debug.Log("Player");
     }
 
     //When the bullet comes into contact with any object,
