@@ -11,7 +11,7 @@ public class TurretBulletDestroyScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        healthVariables = GameObject.Find("Player").GetComponent<PlayerHealthScript>();
+        healthVariables = GameObject.Find("Capsule").GetComponent<PlayerHealthScript>();
     }
 
     // Update is called once per frame
@@ -22,8 +22,8 @@ public class TurretBulletDestroyScript : MonoBehaviour
 
     void damagePlayer()
     {
-        healthVariables.currentHealth = healthVariables.currentHealth - 15;
-        Debug.Log("Player");
+        //healthVariables.currentHealth = healthVariables.currentHealth - 15;
+       
     }
 
     //When the bullet comes into contact with any object,
