@@ -10,6 +10,8 @@ public class TeleporterScript : MonoBehaviour
     void OnTriggerEnter(Collider other)
     {
         player.transform.position = teleportSpot.transform.position;
+        player.GetComponent<PoisonLakeDamageScript>().poisonHeightCheck = 17;
+        Destroy(this);
     }
 
     // Start is called before the first frame update

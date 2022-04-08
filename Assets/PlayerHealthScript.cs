@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class PlayerHealthScript : MonoBehaviour
@@ -8,8 +9,8 @@ public class PlayerHealthScript : MonoBehaviour
     //Code based off of https://stackoverflow.com/questions/59491053/enemy-health-bar-and-taking-damage
     //and https://medium.com/nerd-for-tech/generic-universal-scripts-health-and-damage-a57db50fc920
 
-    public int currentHealth;
-    public int maxHealth; 
+    public float currentHealth;
+    public float maxHealth; 
 
     //Health gauge UI
     public GameObject hBar;
@@ -19,13 +20,13 @@ public class PlayerHealthScript : MonoBehaviour
     void Start()
     {
         currentHealth = maxHealth;
-        hSlider.value = HealthCalculations();
+        hSlider.value = HealthCalculations() * 100f;
     }
 
     // Update is called once per frame
     void Update()
     {
-        hSlider.value = HealthCalculations();
+        hSlider.value = HealthCalculations() * 100f;
         if (currentHealth > maxHealth)
         {
             currentHealth = maxHealth;
@@ -38,16 +39,23 @@ public class PlayerHealthScript : MonoBehaviour
 
         if (currentHealth < 0)
         {
-            gameObject.SetActive(false);
-        }   
+            Debug.Log("Dead");
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+
+        }
     }
 
-    int HealthCalculations()
+    private void FixedUpdate()
+    {
+        currentHealth= currentHealth + 0.2f;
+    }
+
+    float HealthCalculations()
     {
         return currentHealth / maxHealth;
     }
 
-    public void ReceiveDamage(int DamageDealt)
+    public void ReceiveDamage(float DamageDealt)
     {
         currentHealth -= DamageDealt;
     }

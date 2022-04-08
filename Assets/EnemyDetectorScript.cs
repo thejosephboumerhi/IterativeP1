@@ -10,7 +10,7 @@ public class EnemyDetectorScript : MonoBehaviour
     public Transform playerLookedAt;
 
     //This is for the "turret" shooting you
-    public float enemyTurretBulletVelocity = 10f;
+    public float enemyTurretBulletVelocity = 100f;
     public float enemyTurretFiringSpeed = 1.5f;
     float TimeFromAfterShooting;
     
@@ -65,7 +65,7 @@ public class EnemyDetectorScript : MonoBehaviour
         GameObject bulletFired = Instantiate(TurretProjectile,ShootingPointFrom.position,ShootingPointFrom.rotation);
         Rigidbody bullet = bulletFired.GetComponent<Rigidbody>();
 
-        bullet.AddForce(transform.forward*enemyTurretFiringSpeed,ForceMode.VelocityChange);
+        bullet.AddForce(transform.forward*enemyTurretBulletVelocity,ForceMode.VelocityChange);
     }
 
 }
