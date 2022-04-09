@@ -22,7 +22,7 @@ public class TurretBulletDestroyScript : MonoBehaviour
 
     void damagePlayer()
     {
-        healthVariables.currentHealth = healthVariables.currentHealth - 15f;
+        healthVariables.currentHealth = healthVariables.currentHealth - TurretBulletDamage;
        
     }
 

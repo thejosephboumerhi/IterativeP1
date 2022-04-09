@@ -126,4 +126,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hittingWhat: {fileID: 7382542381376784, guid: bc95f795cce50d6439d74f7d575abde2, type: 3}
-  TurretBulletDamage: 15
+  TurretBulletDamage: 40
